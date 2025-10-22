@@ -3,6 +3,7 @@ import HomeLayout from '../layout/HomeLayout';
 import AuthLayout from '../layout/AuthLayout';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import SkillCard from '../pages/SkillCard';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/skill',
-    element: <h2>Skill details layout</h2>,
+    element: <SkillCard></SkillCard>,
   },
   {
     path: '/*',

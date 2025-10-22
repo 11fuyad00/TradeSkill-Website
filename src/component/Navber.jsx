@@ -29,7 +29,7 @@ const Navber = () => {
           </li>
           <li>
             <NavLink
-              to="/skills"
+              to="/skill"
               className={({ isActive }) =>
                 isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
               }

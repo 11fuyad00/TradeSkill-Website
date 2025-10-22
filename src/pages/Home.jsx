@@ -123,14 +123,14 @@ const Home = () => {
                   <img className="w-6 h-6" src={doller} alt="" /> {skill.price}
                 </span>
               </div>
-              <button className="btn btn-active btn-primary mb-5 mr-80 rounded-xl hover:bg-blue-500">
+              <button className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-semibold transition">
                 View Details
               </button>
             </div>
           ))}
         </div>
 
-        <Link to="/all-skills">
+        <Link to="/skill">
           <button className="mt-10 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-semibold">
             View All
           </button>
