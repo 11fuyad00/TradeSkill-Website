@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners.",
+    "image": "https://i.ibb.co.com/C354Bn5r/flat-design-guitar-lessons-facebook-template-23-2149309395.jpg",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions for non-native speakers.",
+    "image": "https://i.ibb.co.com/WWB67rZT/images.jpgg",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Yoga for Beginners",
+    "providerName": "Riya Khan",
+    "providerEmail": "riya@skillswap.com",
+    "price": 15,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Basic yoga techniques for flexibility and relaxation.",
+    "image": "https://i.ibb.co.com/TqxPp4Lw/sddefault.jpg",
+    "category": "Health"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Basic Python Programming",
+    "providerName": "Imran Ali",
+    "providerEmail": "imran@skillswap.com",
+    "price": 25,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Learn Python programming from scratch with hands-on exercises.",
+    "image": "https://i.postimg.cc/example4.png",
+    "category": "Programming"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Photography Essentials",
+    "providerName": "Tania Rahman",
+    "providerEmail": "tania@skillswap.com",
+    "price": 30,
+    "rating": 4.5,
+    "slotsAvailable": 2,
+    "description": "Learn how to take professional-looking photos with any camera.",
+    "image": "https://i.postimg.cc/example5.png",
+    "category": "Art"
+  },
+  {
+    "skillId": 6,
+    "skillName": "French Language Basics",
+    "providerName": "Leo Fernandez",
+    "providerEmail": "leo@skillswap.com",
+    "price": 18,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Introductory French lessons for travelers and beginners.",
+    "image": "https://i.postimg.cc/example6.png",
+    "category": "Language"
+  }
+]
