@@ -1,30 +1,50 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
 import { auth } from '../firebase/Firebase.config';
 import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const handleRegister = e => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log({ name, photo, email, password });
-    form.reset();
-
     createUserWithEmailAndPassword(auth, email, password)
       .then(result => {
         console.log(result.user);
-        toast.success('SigUp Successfull');
+        toast.success('Sign Up Successful');
+        navigate('/');
       })
       .catch(error => {
         console.log(error.message);
-        toast.error('Error', error.message);
+        toast.error('Error: ' + error.message);
+      });
+  };
+
+  // 🟢 Google Sign-in
+  const handleGoogleSignUp = () => {
+    const googleProvider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        console.log('Google Sign-in User:', result.user);
+        toast.success('Logged in with Google!');
+        navigate('/');
+      })
+      .catch(error => {
+        console.error(error.message);
+        toast.error('Google Sign-in Failed: ' + error.message);
       });
   };
 
@@ -98,6 +118,23 @@ const Register = () => {
             className="w-full mt-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold py-2 rounded-xl shadow-lg hover:shadow-pink-500/40 transform hover:scale-105 transition-all duration-300 ease-out"
           >
             Sign Up
+          </button>
+
+          {/* OR Divider */}
+          <div className="flex items-center justify-center text-white/70 mt-4">
+            <span className="border-b border-white/30 w-1/4"></span>
+            <span className="px-3">or</span>
+            <span className="border-b border-white/30 w-1/4"></span>
+          </div>
+
+          {/* 🟢 Google Sign-in Button */}
+          <button
+            type="button"
+            onClick={handleGoogleSignUp}
+            className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-semibold py-2 rounded-xl shadow-md hover:bg-gray-100 transition-all duration-300"
+          >
+            <FcGoogle size={22} />
+            Continue with Google
           </button>
 
           {/* Divider */}

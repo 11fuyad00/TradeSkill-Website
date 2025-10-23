@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
-import { Eye, EyeOff } from 'lucide-react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Eye, EyeOff, EyeOffIcon } from 'lucide-react';
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from 'firebase/auth';
 import { auth } from '../firebase/Firebase.config';
 import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
@@ -31,6 +36,22 @@ const Login = () => {
         const errorCode = error.code;
         toast.error('Error', error.message);
         setError(errorCode);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    const googleProvider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        console.log('Google Sign-in User:', result.user);
+        toast.success('Logged in with Google!');
+
+        navigate(`${location.state ? location.state : '/'}`);
+      })
+      .catch(error => {
+        console.error(error.message);
+        toast.error('Google Sign-in Failed: ' + error.message);
       });
   };
 
@@ -77,7 +98,7 @@ const Login = () => {
               onClick={() => setShowPass(!showPass)}
               className="absolute right-3 top-9 text-white/70 hover:text-white transition"
             >
-              {showPass ? <EyeOff size={20} /> : <Eye size={20} />}
+              {showPass ? <EyeOffIcon size={20} /> : <Eye size={20} />}
             </button>
           </div>
 
@@ -86,6 +107,22 @@ const Login = () => {
             className="w-full mt-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold py-2 rounded-xl shadow-lg hover:shadow-pink-500/40 transform hover:scale-105 transition-all duration-300 ease-out"
           >
             Login
+          </button>
+          {/* OR Divider */}
+          <div className="flex items-center justify-center text-white/70 mt-4">
+            <span className="border-b border-white/30 w-1/4"></span>
+            <span className="px-3">or</span>
+            <span className="border-b border-white/30 w-1/4"></span>
+          </div>
+
+          {/* 🟢 Google Sign-in Button */}
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            className="flex items-center justify-center gap-3 w-full bg-white text-gray-700 font-semibold py-2 rounded-xl shadow-md hover:bg-gray-100 transition-all duration-300"
+          >
+            <FcGoogle size={22} />
+            Continue with Google
           </button>
 
           {/* Divider */}
