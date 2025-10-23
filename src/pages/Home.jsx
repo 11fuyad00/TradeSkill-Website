@@ -123,9 +123,11 @@ const Home = () => {
                   <img className="w-6 h-6" src={doller} alt="" /> {skill.price}
                 </span>
               </div>
-              <button className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-semibold transition">
-                View Details
-              </button>
+              <Link to={`/skill-details/${skill.skillId}`}>
+                <button className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-semibold transition">
+                  View Details
+                </button>
+              </Link>
             </div>
           ))}
         </div>

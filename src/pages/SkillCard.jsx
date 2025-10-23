@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import Navber from '../component/Navber';
 import doller from '../assets/doller.png';
 import Footer from './Footer';
+import { Link } from 'react-router';
 
 const SkillCard = () => {
   const [skills, setSkills] = useState([]);
@@ -16,7 +17,7 @@ const SkillCard = () => {
     fetch('/Skill.json')
       .then(res => res.json())
       .then(data => setSkills(data))
-      .catch(err => console.error('Error loading skills:', err));
+      .catch(error => console.error('Error loading skills:', error));
   }, []);
 
   return (
@@ -69,9 +70,11 @@ const SkillCard = () => {
                 </span>
               </div>
 
-              <button className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-semibold transition">
-                View Details
-              </button>
+              <Link to={`/skill-details/${skill.skillId}`}>
+                <button className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-semibold transition">
+                  View Details
+                </button>
+              </Link>
             </div>
           </div>
         ))}

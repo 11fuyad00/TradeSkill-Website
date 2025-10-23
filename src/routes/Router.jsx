@@ -4,6 +4,8 @@ import AuthLayout from '../layout/AuthLayout';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import SkillCard from '../pages/SkillCard';
+import SkillDetails from '../pages/SkillDetails';
+import PrivateRoute from '../providers/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,15 @@ const router = createBrowserRouter([
   {
     path: '/skill',
     element: <SkillCard></SkillCard>,
+  },
+  {
+    path: '/skill-details/:skillId',
+    element: (
+      <PrivateRoute>
+        <SkillDetails></SkillDetails>
+      </PrivateRoute>
+    ),
+    loader: () => fetch('/Skill.json'),
   },
   {
     path: '/*',

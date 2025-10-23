@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { Eye, EyeOff } from 'lucide-react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/Firebase.config';
@@ -7,6 +7,10 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
 
   const handleLogin = e => {
     e.preventDefault();
@@ -19,6 +23,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(result => {
         console.log(result.user);
+        navigate(`${location.state ? location.state : '/'}`);
         toast.success('Login SuccessFull');
       })
       .catch(error => {
