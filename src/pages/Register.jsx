@@ -9,6 +9,7 @@ const Register = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;

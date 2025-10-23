@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const [error, setError] = useState('');
 
   const location = useLocation();
   console.log(location);
@@ -24,11 +25,12 @@ const Login = () => {
       .then(result => {
         console.log(result.user);
         navigate(`${location.state ? location.state : '/'}`);
-        toast.success('Login SuccessFull');
+        toast.success('Login successful!');
       })
       .catch(error => {
-        console.log(error.message);
+        const errorCode = error.code;
         toast.error('Error', error.message);
+        setError(errorCode);
       });
   };
 
@@ -79,7 +81,6 @@ const Login = () => {
             </button>
           </div>
 
-          {/* Gradient Button with animation */}
           <button
             type="submit"
             className="w-full mt-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold py-2 rounded-xl shadow-lg hover:shadow-pink-500/40 transform hover:scale-105 transition-all duration-300 ease-out"
