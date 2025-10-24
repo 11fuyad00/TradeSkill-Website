@@ -6,6 +6,7 @@ import Register from '../pages/Register';
 import SkillCard from '../pages/SkillCard';
 import SkillDetails from '../pages/SkillDetails';
 import PrivateRoute from '../providers/PrivateRoute';
+import Profile from '../pages/Profile';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
   {
     path: '/skill',
     element: <SkillCard></SkillCard>,
+  },
+  {
+    path: '/profile',
+    element: (
+      <PrivateRoute>
+        <Profile></Profile>
+      </PrivateRoute>
+    ),
   },
   {
     path: '/skill-details/:skillId',

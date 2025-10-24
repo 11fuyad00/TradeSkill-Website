@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const authData = { user, loading, logout };
+  const authData = { user, setUser, loading, logout };
 
   return (
     <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>

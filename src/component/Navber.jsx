@@ -35,38 +35,74 @@ const Navber = () => {
         </NavLink>
 
         {/* Nav Links */}
-        <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/skill"
-              className={({ isActive }) =>
-                isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
-              }
-            >
-              Explore Skills
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
-              }
-            >
-              About Us
-            </NavLink>
-          </li>
-        </ul>
+        {user ? (
+          <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/skill"
+                className={({ isActive }) =>
+                  isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
+                }
+              >
+                Explore Skills
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
+                }
+              >
+                Profile
+              </NavLink>
+            </li>
+          </ul>
+        ) : (
+          <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/skill"
+                className={({ isActive }) =>
+                  isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
+                }
+              >
+                Explore Skills
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? 'text-orange-500 font-semibold' : 'text-gray-700'
+                }
+              >
+                About Us
+              </NavLink>
+            </li>
+          </ul>
+        )}
 
         {/* Auth Buttons */}
         {user ? (
@@ -103,9 +139,7 @@ const Navber = () => {
       </nav>
 
       {/* Show current user */}
-      <div className="text-center text-gray-600 mt-2">
-        {user && <p>Welcome, {user.email}</p>}
-      </div>
+      <div className="text-center text-gray-600 mt-2"></div>
 
       <ToastContainer />
     </div>
