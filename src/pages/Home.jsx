@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import rightImg from '../assets/5031659.jpg';
 import boyImg from '../assets/boy.png';
 import doller from '../assets/doller.png';
+import leftImg from '../assets/3653100.jpg';
 import { Link } from 'react-router';
 
 const Home = () => {
@@ -12,7 +13,6 @@ const Home = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
 
-    // JSON file fetch (public/skill.json)
     fetch('/Skill.json')
       .then(res => res.json())
       .then(data => {
@@ -26,9 +26,8 @@ const Home = () => {
 
   return (
     <div className="font-sans bg-gray-50 text-gray-800 w-full overflow-hidden">
-      {/* ------------------ HERO SECTION ------------------ */}
+      {/* HERO SECTION  */}
       <section className="flex flex-col md:flex-row items-center justify-between px-10 py-16 md:py-24 w-11/12 mx-auto">
-        {/* Left Text */}
         <div className="max-w-lg space-y-6" data-aos="fade-right">
           <h2 className="text-5xl font-bold leading-tight">
             <span className="text-orange-500">Teach</span> What you know
@@ -40,7 +39,6 @@ const Home = () => {
             exchange for your own skill.
           </p>
 
-          {/* Search Input */}
           <div className="flex items-center bg-white rounded-full shadow-md w-full p-2">
             <input
               type="text"
@@ -52,7 +50,6 @@ const Home = () => {
             </button>
           </div>
 
-          {/* Buttons */}
           <div className="flex space-x-4">
             <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow">
               Get Started
@@ -63,14 +60,13 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Right Image */}
         <div className="mt-10 md:mt-0 relative" data-aos="fade-left">
           <img
             className="w-96 md:w-[500px] rounded-xl"
             src={rightImg}
             alt="Student"
           />
-          {/* Floating Stats */}
+
           <div className="absolute top-6 right-4 bg-orange-500 text-white shadow-md px-3 py-2 rounded-lg text-sm font-medium">
             <p>10k+ Skills Shared</p>
           </div>
@@ -87,7 +83,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ------------------ POPULAR SKILLS ------------------ */}
+      {/* POPULAR SKILLS */}
       <section className="text-center px-10 py-20 bg-white">
         <h3 className="text-3xl font-bold mb-4" data-aos="fade-up">
           Popular <span className="text-orange-500">Skills</span>
@@ -139,7 +135,7 @@ const Home = () => {
         </Link>
       </section>
 
-      {/* ------------------ TOP RATED PROVIDERS ------------------ */}
+      {/* TOP RATED PROVIDERS */}
       <section className="bg-gray-50 py-20 text-center">
         <h3 className="text-3xl font-bold mb-4" data-aos="fade-up">
           Top Rated <span className="text-orange-500">Providers</span>
@@ -189,7 +185,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ------------------ HOW IT WORKS ------------------ */}
+      {/* HOW IT WORKS */}
       <section className="py-20 bg-white text-center">
         <h3 className="text-3xl font-bold mb-6" data-aos="fade-up">
           How It <span className="text-orange-500">Works</span>
@@ -238,18 +234,81 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ------------------ EXTRA SECTION ------------------ */}
-      <section className="bg-indigo-50 py-20 text-center" data-aos="fade-up">
+      {/* COMMUNITY HIGHLIGHTS */}
+      <section
+        className="py-20 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 text-center"
+        data-aos="fade-up"
+      >
         <h3 className="text-3xl font-bold mb-6">
-          Join as a <span className="text-orange-500">Skill Provider</span>
+          Community <span className="text-orange-500">Highlights</span>
         </h3>
-        <p className="text-gray-600 mb-10">
-          Help others learn by sharing what you love to do. Build your local
-          reputation and earn rewards.
+        <p className="text-gray-700 mb-12 max-w-2xl mx-auto">
+          See how SkillSwap members are growing together through creativity,
+          collaboration, and connection.
         </p>
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold">
-          Become a Provider
-        </button>
+
+        <div className="grid md:grid-cols-3 gap-10 w-11/12 mx-auto">
+          {[
+            {
+              title: '✨ Skill Exchange Success',
+              desc: 'Over 5,000 successful skill swaps made between users worldwide — from yoga to coding!',
+              color: 'from-orange-400 to-pink-500',
+              icon: '🌍',
+            },
+            {
+              title: '🚀 Learning Milestones',
+              desc: 'Users achieved over 10,000 learning hours this month through community mentorship.',
+              color: 'from-indigo-400 to-purple-600',
+              icon: '🎓',
+            },
+            {
+              title: '💬 Active Community',
+              desc: 'Join discussions, share feedback, and connect with passionate learners every day.',
+              color: 'from-green-400 to-teal-500',
+              icon: '🤝',
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              data-aos="zoom-in"
+              className={`bg-gradient-to-br ${item.color} text-white p-8 rounded-3xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:brightness-110`}
+            >
+              <div className="text-5xl mb-4 drop-shadow-lg">{item.icon}</div>
+              <h4 className="text-xl font-bold mb-2">{item.title}</h4>
+              <p className="text-sm opacity-90">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* EXTRA SECTION */}
+      <section
+        className="bg-indigo-50 py-20 text-center md:text-left"
+        data-aos="fade-up"
+      >
+        <div className="container mx-auto px-6 md:flex items-center justify-between gap-10">
+          <div className="md:w-1/2">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              Join as a <span className="text-orange-500">Skill Provider</span>
+            </h3>
+            <p className="text-gray-600 mb-10 leading-relaxed">
+              Help others learn by sharing what you love to do. Build your local
+              reputation, inspire others, and earn rewards while doing what you
+              love.
+            </p>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-md transition-transform hover:scale-105">
+              Become a Provider
+            </button>
+          </div>
+
+          <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+            <img
+              src={leftImg}
+              alt="Skill Provider"
+              className="w-80 md:w-[400px] rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
