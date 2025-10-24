@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  updateProfile,
 } from 'firebase/auth';
 import { auth } from '../firebase/Firebase.config';
 import { toast } from 'react-toastify';
@@ -11,6 +12,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
   const navigate = useNavigate();
+  const [passwordError, setPasswordError] = useState('');
 
   const handleRegister = e => {
     e.preventDefault();
@@ -20,11 +22,38 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    // ✅ Password Validation
+    if (!/[A-Z]/.test(password)) {
+      setPasswordError('Password must include at least 1 uppercase letter.');
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      setPasswordError('Password must include at least 1 lowercase letter.');
+      return;
+    }
+    if (password.length < 6) {
+      setPasswordError('Password must be at least 6 characters long.');
+      return;
+    }
+
+    setPasswordError(''); // clear previous error
+
+    // 🔹 Create User
     createUserWithEmailAndPassword(auth, email, password)
       .then(result => {
-        console.log(result.user);
-        toast.success('Sign Up Successful');
-        navigate('/');
+        // Update displayName & photoURL
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo || '',
+        })
+          .then(() => {
+            toast.success('Sign Up Successful!');
+            navigate('/');
+          })
+          .catch(err => {
+            console.error('Profile update failed:', err);
+            toast.error('Profile update failed!');
+          });
       })
       .catch(error => {
         console.log(error.message);
@@ -50,7 +79,6 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-5">
-      {/* Glass Card */}
       <div className="w-full max-w-md bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl rounded-2xl p-8 animate-fadeIn">
         <h2 className="text-3xl font-bold text-center text-white mb-6">
           Create Your Account
@@ -110,6 +138,9 @@ const Register = () => {
               className="w-full px-4 py-2 rounded-xl border border-white/30 bg-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400"
               required
             />
+            {passwordError && (
+              <p className="text-red-400 text-sm mt-1">{passwordError}</p>
+            )}
           </div>
 
           {/* Submit Button */}
@@ -137,7 +168,7 @@ const Register = () => {
             Continue with Google
           </button>
 
-          {/* Divider */}
+          {/* Login Link */}
           <div className="text-center text-white/80 mt-4">
             Already Have an Account?{' '}
             <Link
