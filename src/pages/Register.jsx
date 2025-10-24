@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
+import { Eye, EyeOffIcon } from 'lucide-react';
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -11,6 +12,7 @@ import { toast } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
+  const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState('');
 
@@ -36,9 +38,9 @@ const Register = () => {
       return;
     }
 
-    setPasswordError(''); // clear previous error
+    setPasswordError(''); //
 
-    // 🔹 Create User
+    //  Create User
     createUserWithEmailAndPassword(auth, email, password)
       .then(result => {
         // Update displayName & photoURL
@@ -61,7 +63,7 @@ const Register = () => {
       });
   };
 
-  // 🟢 Google Sign-in
+  //  Google Sign-in
   const handleGoogleSignUp = () => {
     const googleProvider = new GoogleAuthProvider();
 
@@ -127,19 +129,29 @@ const Register = () => {
           </div>
 
           {/* Password */}
-          <div>
+          <div className="relative">
             <label className="block text-white text-sm font-semibold mb-1">
               Password
             </label>
             <input
-              type="password"
+              type={showPass ? 'text' : 'password'}
               name="password"
               placeholder="Enter password"
               className="w-full px-4 py-2 rounded-xl border border-white/30 bg-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-pink-400"
               required
             />
+
+            {/* Eye Button */}
+            <button
+              type="button"
+              onClick={() => setShowPass(!showPass)}
+              className="absolute right-3 top-9 text-white/70 hover:text-white transition"
+            >
+              {showPass ? <EyeOffIcon size={20} /> : <Eye size={20} />}
+            </button>
+
             {passwordError && (
-              <p className="text-red-400 text-sm mt-1">{passwordError}</p>
+              <p className="text-white text-sm mt-1">{passwordError}</p>
             )}
           </div>
 

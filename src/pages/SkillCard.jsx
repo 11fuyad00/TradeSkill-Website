@@ -10,10 +10,8 @@ const SkillCard = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    // AOS Animation initialize
     AOS.init({ duration: 1000, once: true });
 
-    // JSON data load
     fetch('/Skill.json')
       .then(res => res.json())
       .then(data => setSkills(data))

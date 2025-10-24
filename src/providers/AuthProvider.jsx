@@ -8,18 +8,15 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // observe user state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
       setLoading(false);
     });
 
-    // cleanup
     return () => unsubscribe();
   }, []);
 
-  // logout function
   const logout = () => {
     return signOut(auth);
   };

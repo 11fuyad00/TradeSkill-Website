@@ -38,7 +38,6 @@ const Navber = () => {
           </div>
         </NavLink>
 
-        {/* Desktop Nav Links */}
         <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
           <li>
             <NavLink
