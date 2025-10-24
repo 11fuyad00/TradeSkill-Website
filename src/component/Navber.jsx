@@ -22,7 +22,7 @@ const Navber = () => {
   };
 
   const goToProfile = () => {
-    if (user) navigate('/profile'); // 🆕 avatar click navigates to profile
+    if (user) navigate('/profile');
   };
 
   return (
@@ -85,7 +85,6 @@ const Navber = () => {
           )}
         </ul>
 
-        {/* Desktop Auth Buttons */}
         <div className="hidden md:flex items-center space-x-4">
           {user ? (
             <>
@@ -117,13 +116,21 @@ const Navber = () => {
             <>
               <NavLink
                 to="/auth/login"
-                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-orange-100"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'bg-orange-500 text-white font-semibold px-4 py-2 rounded-lg'
+                    : 'bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-orange-100'
+                }
               >
                 Login
               </NavLink>
               <NavLink
                 to="/auth/register"
-                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-orange-100"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'bg-orange-500 text-white font-semibold px-4 py-2 rounded-lg'
+                    : 'bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-orange-100'
+                }
               >
                 Sign Up
               </NavLink>
@@ -131,7 +138,7 @@ const Navber = () => {
           )}
         </div>
 
-        {/* Mobile Hamburger + Avatar */}
+        {/* Mobile Responsive + Avatar */}
         <div className="md:hidden flex items-center gap-3">
           {user && (
             <div

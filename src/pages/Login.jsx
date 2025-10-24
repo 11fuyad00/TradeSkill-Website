@@ -20,7 +20,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // 🔹 Handle normal login
+  //  Handle normal login
   const handleLogin = e => {
     e.preventDefault();
     const form = e.target;
@@ -40,7 +40,7 @@ const Login = () => {
       });
   };
 
-  // 🔹 Google Sign-in
+  //  Google Sign-in
   const handleGoogleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
 
@@ -55,7 +55,7 @@ const Login = () => {
       });
   };
 
-  // 🔹 Forgot Password
+  //  Forgot Password
   const handleForgotPassword = e => {
     e.preventDefault();
 
@@ -84,7 +84,7 @@ const Login = () => {
           Log in to continue your TradeSkill journey
         </p>
 
-        {/* 🔹 Login Form */}
+        {/* Login Form */}
         {!showReset ? (
           <form onSubmit={handleLogin} className="space-y-5">
             {/* Email */}
@@ -155,7 +155,6 @@ const Login = () => {
               Continue with Google
             </button>
 
-            {/* Register Link */}
             <div className="text-center text-white/80 mt-4">
               New to TradeSkill?{' '}
               <Link
@@ -167,7 +166,7 @@ const Login = () => {
             </div>
           </form>
         ) : (
-          /* 🔹 Forgot Password Form */
+          /*  Forgot Password Form */
           <form onSubmit={handleForgotPassword} className="space-y-5">
             <h3 className="text-2xl text-white font-semibold mb-4 text-center">
               Reset Your Password 🔑

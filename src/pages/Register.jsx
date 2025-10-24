@@ -22,7 +22,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    // ✅ Password Validation
+    //  Password Validation
     if (!/[A-Z]/.test(password)) {
       setPasswordError('Password must include at least 1 uppercase letter.');
       return;
