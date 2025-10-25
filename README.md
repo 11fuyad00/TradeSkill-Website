@@ -1,16 +1,50 @@
-# React + Vite
+# 🌟 Trade Skill - Local Skill Exchange Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Trade Skill Banner](https://img.shields.io/badge/Trade_Skill-🔥Premium-blueviolet)
 
-Currently, two official plugins are available:
+[![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react&logoColor=white)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0.0-brightgreen?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind](https://img.shields.io/badge/TailwindCSS-3.3.3-skyblue?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Firebase](https://img.shields.io/badge/Firebase-Auth%2FDB-orange?logo=firebase&logoColor=white)](https://firebase.google.com/)
+[![Netlify](https://img.shields.io/badge/Netlify-Deploy-success?logo=netlify&logoColor=white)](https://www.netlify.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Trade Skill** is a Local Skill Exchange Platform where users can:
 
-## Expanding the ESLint configuration
+- 🧑‍🏫 Share their own skills
+- 🎓 Learn new skills
+- 🤝 Connect with other local providers
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> 💡 **Pro Tip:** A responsive & modern UI makes learning fun & engaging!
+
+---
+
+## 🎯 Features
+
+| Feature                                   | Status                      |
+| ----------------------------------------- | --------------------------- |
+| User Registration & Login (Firebase Auth) | ✅ Done                     |
+| Rate & Review Providers                   | ✅ Done                     |
+| “View All” Page                           | ✅ Done                     |
+| Responsive Design                         | ✅ Mobile + Desktop         |
+| Premium UI                                | 🎨 Gradients + Soft Shadows |
+| Animations                                | ✨ AOS Animations           |
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** React 18 + Vite
+- **Styling:** TailwindCSS + AOS Animations
+- **Backend:** Firebase (Auth + Firestore DB)
+- **Hosting:** Netlify + Firebase
+
+---
+
+## 🚀 Live Demo
+
+🌐 **Netlify:** [Click Here](https://your-netlify-link.netlify.app)  
+⚡ **Firebase:** [Click Here](https://trade-skill-1bcab.web.app)
