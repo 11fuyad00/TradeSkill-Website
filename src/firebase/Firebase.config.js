@@ -6,12 +6,12 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyAOreKul9peHh2uBK2D1chX9H8fumU7vU8',
-  authDomain: 'trade-skill-1bcab.firebaseapp.com',
-  projectId: 'trade-skill-1bcab',
-  storageBucket: 'trade-skill-1bcab.firebasestorage.app',
-  messagingSenderId: '1023925948687',
-  appId: '1:1023925948687:web:8fa737fcae634a3bb3ee7a',
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

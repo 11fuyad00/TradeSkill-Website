@@ -7,6 +7,7 @@ import SkillCard from '../pages/SkillCard';
 import SkillDetails from '../pages/SkillDetails';
 import PrivateRoute from '../providers/PrivateRoute';
 import Profile from '../pages/Profile';
+import ErrorPage from '../pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/*',
-    element: <h2>Thia is Error 404</h2>,
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 
