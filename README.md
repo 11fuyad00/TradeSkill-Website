@@ -46,5 +46,5 @@
 
 ## 🚀 Live Demo
 
-🌐 **Netlify:** [Click Here](https://your-netlify-link.netlify.app)  
+🌐 **Netlify:** [Click Here](trade-skill-project.netlify.app)  
 ⚡ **Firebase:** [Click Here](https://trade-skill-1bcab.web.app)
